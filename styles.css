@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* HUD */
+.hud-bg {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hud-bg svg {
+  width: 60vmin;
+  stroke: rgba(255,255,255,0.12);
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.2s ease-out;
+}
+
+/* THEME TOGGLE */
+#theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  padding: 0.8rem 1rem;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Slider */
+.slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slides {
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  transform: scale(0.9) rotateY(90deg);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.slide.active {
+  transform: scale(1) rotateY(0deg);
+  opacity: 1;
+}
+
+.placeholder {
+  height: 100%;
+  background: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #aaa;
+}
+
+/* Slider text */
+.slider-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+  z-index: 2;
+}
+
+.slider-title h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 5rem;
+  letter-spacing: 0.4rem;
+}
+
+.slider-title p {
+  opacity: 0.8;
+}
+
+/* Content Sections */
+.content {
+  display: flex;
+  gap: 4rem;
+  padding: 6rem 10%;
+  position: relative;
+  z-index: 1;
+}
+
+.content.reverse {
+  flex-direction: row-reverse;
+}
+
+.text {
+  flex: 1;
+}
+
+.text h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.image-placeholder {
+  flex: 1;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  min-height: 300px;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  opacity: 0.6;
+}
+
+/* LIGHT MODE */
+body.light {
+  background: #fff;
+  color: #000;
+}
+
+body.light .hud-bg svg {
+  stroke: rgba(0,0,0,0.12);
+}
+
+body.light .placeholder,
+body.light .image-placeholder {
+  background: #ccc;
+  color: #333;
+}
+
+body.light #theme-toggle {
+  background: rgba(0,0,0,0.1);
+  border: 2px solid #000;
+  color: #000;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 20%;
+  text-decoration: none;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebe5d;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .content,
+  .content.reverse {
+    flex-direction: column;
+  }
+
+  .slider-title h1 {
+    font-size: 3rem;
+  }
+
+  .hud-bg svg {
+    width: 80vmin;
+  }
+}
